@@ -3,13 +3,13 @@
 #' Retrieves the path to redoc resources.
 #'
 #' @examples
-#'
+#' \dontrun{
 #' if (interactive()) {
 #'   browseURL(redoc_path())
 #' } else {
 #'   print(paste("You can explore redoc resources under: ", redoc_path()))
 #' }
-#'
+#' }
 #' @export
 #' @rdname redoc_path
 redoc_path <- function() {
@@ -24,13 +24,13 @@ redoc_path <- function() {
 #' Retrieves the path to the redoc index file.
 #'
 #' @examples
-#'
+#' \dontrun{
 #' if (interactive()) {
 #'   browseURL(redoc_index())
 #' } else {
 #'   print(paste("You can use redoc under: ", redoc_index()))
 #' }
-#'
+#' }
 #' @export
 #' @rdname redoc_index
 redoc_index <- function() {
@@ -42,19 +42,22 @@ redoc_index <- function() {
 #' Produces the content for a \code{index.html} file that will attempt to access a
 #' provided OpenAPI Specification URL.
 #'
-#' @param spec_url Url to an openAPI specification
+#' @param spec_url Url to an OpenAPI specification
 #' @param ... Additional options for Redoc. See
 #' \url{https://github.com/Redocly/redoc#redoc-options-object}
 #' @return large string containing the contents of \code{\link{redoc_index}()} with
-#'   the appropriate speicification path changed to the \code{spec_url} value.
+#'   the appropriate specification path changed to the \code{spec_url} value.
 #' @examples
+#' \dontrun{
 #' if (interactive()) {
 #'   redoc_spec("https://docs.docker.com/engine/api/v1.38.yaml",
 #'              scrollYOffset = 250,
 #'              disableSearch = TRUE)
 #' }
+#' }
 #' @export
 #' @rdname redoc_spec
+#' @importFrom jsonlite toJSON
 redoc_spec <- function(spec_url = "https://redocly.github.io/redoc/openapi.yaml",
                        ...) {
   redoc_options <- list(...)
